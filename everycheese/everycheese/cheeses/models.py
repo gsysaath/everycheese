@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from autoslug import AutoSlugField
 from model_utils.models import TimeStampedModel
+from django.conf import settings
 from django_countries.fields import CountryField
 
 
@@ -23,6 +24,11 @@ class Cheese(TimeStampedModel):
     firmness = models.CharField("Firmness", max_length=20, choices=Firmness.choices, default=Firmness.UNSPECIFIED)
     country_of_origin = CountryField(
         "Country of Origin", blank=True
+    )
+    creator = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        on_delete=models.SET_NULL
     )
 
     def get_absolute_url(self):
