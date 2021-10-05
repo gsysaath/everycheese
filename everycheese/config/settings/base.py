@@ -81,11 +81,12 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "django_countries",  # CountryField
 ]
 
 LOCAL_APPS = [
-    "everycheese.users.apps.UsersConfig", # custom users app
-    "everycheese.cheeses.apps.CheesesConfig", # cheese info app
+    "everycheese.users.apps.UsersConfig",  # custom users app
+    "everycheese.cheeses.apps.CheesesConfig",  # cheese info app
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
